@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "donuthunter",
+  "version": "${version}",
+  "name": "DonutHunter",
+  "description": "DonutHunter utility addon for Meteor Client.",
+  "authors": ["DonutHunter"],
+  "environment": "client",
+  "entrypoints": {
+    "meteor": ["com.donuthunter.DonutHunter"]
+  },
+  "depends": {
+    "java": ">=25",
+    "minecraft": "26.1.2",
+    "meteor-client": "*"
+  }
+}
