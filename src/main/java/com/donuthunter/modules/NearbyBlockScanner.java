@@ -6,8 +6,10 @@ import java.util.Set;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.Block;
 
+import meteordevelopment.meteorclient.events.world.TickEvent;
 import meteordevelopment.meteorclient.systems.modules.Module;
 import meteordevelopment.meteorclient.systems.modules.Category;
+import meteordevelopment.orbit.EventHandler;
 
 public abstract class NearbyBlockScanner extends Module {
     private static final int SCAN_INTERVAL_TICKS = 100; // 5 seconds
@@ -37,8 +39,8 @@ public abstract class NearbyBlockScanner extends Module {
         scan();
     }
 
-    @Override
-    public void onTick() {
+    @EventHandler
+    private void onTick(TickEvent.Pre event) {
         ticks++;
 
         if (ticks >= SCAN_INTERVAL_TICKS) {
