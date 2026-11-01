@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ShulkerBoxBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.chunk.ChunkStatus;
 import net.minecraft.world.level.chunk.LevelChunk;
 
 public class SusChunkFinder extends Module {
@@ -81,9 +80,7 @@ public class SusChunkFinder extends Module {
                  cz <= playerChunkZ + SCAN_RADIUS; cz++) {
 
                 // false means do not force-load missing chunks.
-                LevelChunk chunk = mc.level.getChunkSource().getChunk(
-                    cx, cz, ChunkStatus.FULL, false
-                );
+               LevelChunk chunk = mc.level.getChunkSource().getChunkNow(cx, cz);
 
                 if (chunk == null) continue;
 
